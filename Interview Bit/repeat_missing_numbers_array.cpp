@@ -1,4 +1,5 @@
-int i;
+vector<int> Solution::repeatedNumber(const vector<int> &A) {
+    int i;
     int n = A.size();
     long long int a,b,c;
     long long int tot, stot;
@@ -20,3 +21,4 @@ int i;
     answer[0] = (a+c)/2;
     answer[1] = c-answer[0];
     return answer;
+}
