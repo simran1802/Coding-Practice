@@ -1,21 +1,22 @@
-vector<int> Solution::repeatedNumber(const vector<int> &A) {
-    long n = A.size();
-    long s1=0,s2=0;
-    for(int i:A){
-        s1 += i;
-        s2 += ((long)i)*i;
+int i;
+    int n = A.size();
+    long long int a,b,c;
+    long long int tot, stot;
+    long long int sum=0;
+    long long int ssum=0;
+    vector<int> answer(2,0);
+    
+    tot = (long long int) n*(n+1)/2;
+    stot =(long long int) n*(2*n+1)*(n+1)/6;
+    for(i=0;i<n;i++){
+        sum += A[i];
+        ssum += (long long int) A[i]*A[i];
     }
-    long sum1 = n*(n+1)/2;
-    long sum2 = n*(n+1)*(2*n+1)/6;
     
-    long d1 = s1-sum1;
-    long d2 = s2-sum2;
+    a = sum-tot;    // x - y
+    b = ssum-stot;  // x2 - y2
+    c = b/a;        // x + y
     
-    long diff = d1;
-    long sum = d2/d1;
-    
-    long rep = (sum+diff)/2;
-    long miss = (sum-diff)/2;
-    
-    return {(int) rep, (int) miss};
-}
+    answer[0] = (a+c)/2;
+    answer[1] = c-answer[0];
+    return answer;
