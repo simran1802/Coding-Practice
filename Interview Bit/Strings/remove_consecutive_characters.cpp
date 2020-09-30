@@ -1,21 +1,19 @@
 string Solution::solve(string A, int B) {
-    string res = "";
-    int i;
-    for(i=0;i<A.size()-B+1;i++){
-        int j=1;
-        while(i+j < A.size() && A[i+j]==A[i])
-            j++;
-            
-            if(j!=B)
-                res += A[i];
-            else
-                i = i+j-1;
-                
-            
+    string s;
+    for(int i=0;i<A.size();i++)
+    {
+        int k=1,count=1;
+         while(A[i]==A[i+k])
+            {
+                count++;
+                k++;
+            }
+            if(count==B)
+            {
+                i += B-1;
+                continue;
+            }
+         s.push_back(A[i]);
     }
-    while(i<A.size()){
-        res += A[i];
-        i++;
-    }
-    return res;
+    return s;
 }
