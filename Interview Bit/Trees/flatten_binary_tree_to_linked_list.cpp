@@ -31,3 +31,4 @@ TreeNode* Solution::flatten(TreeNode* A) {
     }
     return A;
 }
+ 
